@@ -1,4 +1,5 @@
 import 'package:blog_app/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:blog_app/features/auth/presentation/pages/login.dart';
 import 'package:blog_app/features/auth/presentation/pages/sign_up.dart';
 import 'package:blog_app/init_dependancies.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Blog App',
         theme: ThemeData.dark(useMaterial3: true),
-        home: const SignUpScreen());
+        home: const SignInScreen());
   }
 }
