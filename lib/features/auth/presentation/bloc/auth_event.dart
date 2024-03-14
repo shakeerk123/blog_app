@@ -18,3 +18,5 @@ final class AuthLoginPreesedEvent extends AuthEvent {
 
   AuthLoginPreesedEvent(this.email, this.password,);
 }
+
+final class  IsUserLoggedIn  extends AuthEvent {}

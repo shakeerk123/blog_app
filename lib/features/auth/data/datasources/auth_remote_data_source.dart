@@ -45,7 +45,7 @@ class AuthRemoteDataSourceImple implements AuthRemoteDataSource {
         throw ServerException("User is null");
       }
 
-      return UserModel.fromJson(response.user!.toJson());
+      return UserModel.fromJson(response.user!.toJson()).copyWith(email: userSession!.user.email);
     } catch (e) {
       throw ServerException(e.toString());
     }
@@ -67,7 +67,7 @@ class AuthRemoteDataSourceImple implements AuthRemoteDataSource {
         throw ServerException("User is null");
       }
 
-      return UserModel.fromJson(response.user!.toJson());
+      return UserModel.fromJson(response.user!.toJson()).copyWith(email: userSession!.user.email);
     } catch (e) {
       throw ServerException(e.toString());
     }
@@ -82,7 +82,9 @@ class AuthRemoteDataSourceImple implements AuthRemoteDataSource {
             .select()
             .eq("id", userSession!.user.id);
 
-        return UserModel.fromJson(userId.first);
+        return UserModel.fromJson(userId.first).copyWith(
+          email: userSession!.user.email
+        );
       }
 
       return null;
