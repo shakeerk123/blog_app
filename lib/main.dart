@@ -37,7 +37,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Blogify',
-        theme: ThemeData.dark(useMaterial3: true),
+        theme: ThemeData.dark(useMaterial3: true).copyWith(
+            chipTheme: const ChipThemeData(
+                //color: MaterialStatePropertyAll(AppColor.kBackGroundColor),
+                side: BorderSide.none)),
         home: BlocSelector<AppUserCubit, AppUserState, bool>(
           selector: (state) {
             return state is AppUserLoggedIn;
