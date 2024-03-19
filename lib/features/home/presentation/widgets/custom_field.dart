@@ -18,6 +18,11 @@ class CustomTextForm extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           hintText: hintText,
+          border:const OutlineInputBorder(),
+          errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: AppColor.kRed),
+            borderRadius: BorderRadius.circular(8.0),
+          ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: AppColor.kBackGroundColor),
             borderRadius: BorderRadius.circular(8.0),
@@ -27,6 +32,12 @@ class CustomTextForm extends StatelessWidget {
             borderRadius: BorderRadius.circular(8.0),
           ),
         ),
+        validator: (value) {
+          if (value!.isEmpty) {
+            return "$hintText is missing";
+          }
+          return null;
+        },
         maxLines: null,
       ),
     );
