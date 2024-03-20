@@ -1,8 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:blog_app/features/auth/data/model/user_model.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:supabase_flutter/supabase_flutter.dart' as supa;
-
 import 'package:blog_app/core/common/entities/user.dart';
 import 'package:blog_app/core/error/exceptions.dart';
 import 'package:blog_app/core/error/failure.dart';
@@ -72,8 +70,6 @@ class AuthReposImple implements AuthRepo {
       final user = await fn();
 
       return right(user);
-    } on supa.AuthException catch (e) {
-      return left(Failure(e.message));
     } on ServerException catch (e) {
       return left(Failure(e.message));
     }

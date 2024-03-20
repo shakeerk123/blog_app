@@ -8,8 +8,8 @@ import 'package:blog_app/core/error/exceptions.dart';
 import 'package:blog_app/core/error/failure.dart';
 import 'package:blog_app/core/network/connection_checker.dart';
 import 'package:blog_app/features/home/data/models/blog_model.dart';
-import 'package:blog_app/features/home/data/models/datasources/blog_local_datasource.dart';
-import 'package:blog_app/features/home/data/models/datasources/blog_remote_data_source.dart';
+import 'package:blog_app/features/home/data/datasources/blog_local_datasource.dart';
+import 'package:blog_app/features/home/data/datasources/blog_remote_data_source.dart';
 import 'package:blog_app/features/home/domain/entities/blog.dart';
 import 'package:blog_app/features/home/domain/repositories/blog_repo.dart';
 

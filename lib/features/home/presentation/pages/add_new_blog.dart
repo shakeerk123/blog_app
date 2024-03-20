@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:blog_app/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:blog_app/core/common/widgets/loader.dart';
 import 'package:blog_app/core/consts/colors.dart';
+import 'package:blog_app/core/consts/list_constants.dart';
 import 'package:blog_app/core/utils/pick_images.dart';
 import 'package:blog_app/core/utils/show_snackbar.dart';
 import 'package:blog_app/features/home/presentation/bloc/blog_bloc.dart';
@@ -115,14 +116,8 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
-                        children: [
-                          "Programming",
-                          "Bussiness",
-                          "Quote",
-                          "Sports",
-                          "Entertainment"
-                        ]
-                            .map((e) => Padding(
+                        children:
+                         ListConstants.topics   .map((e) => Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: GestureDetector(
                                     onTap: () {

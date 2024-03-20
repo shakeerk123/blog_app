@@ -40,17 +40,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundImageContainer(
-        child: Scaffold(
+    return Scaffold(
       backgroundColor: Colors.transparent,
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthFailure) {
             showSnackBar(context, state.message);
-          }else if (state is AuthSuccess) {
-                  Navigator.pushAndRemoveUntil(
-                      context, HomePage.route(), (route) => false);
-                }
+          } else if (state is AuthSuccess) {
+            Navigator.pushAndRemoveUntil(
+                context, HomePage.route(), (route) => false);
+          }
         },
         builder: (context, state) {
           if (state is AuthLoading) {
@@ -265,6 +264,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
           );
         },
       ),
-    ));
+    );
   }
 }
