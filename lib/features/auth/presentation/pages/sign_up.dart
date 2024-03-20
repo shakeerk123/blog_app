@@ -10,6 +10,7 @@ import 'package:blog_app/features/auth/presentation/widgets/backgroun_image_cont
 import 'package:blog_app/features/auth/presentation/widgets/custom_rich_text.dart';
 import 'package:blog_app/features/auth/presentation/widgets/emailvaliadte.dart';
 import 'package:blog_app/features/auth/presentation/widgets/primary_button.dart';
+import 'package:blog_app/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -46,7 +47,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
         listener: (context, state) {
           if (state is AuthFailure) {
             showSnackBar(context, state.message);
-          }
+          }else if (state is AuthSuccess) {
+                  Navigator.pushAndRemoveUntil(
+                      context, HomePage.route(), (route) => false);
+                }
         },
         builder: (context, state) {
           if (state is AuthLoading) {

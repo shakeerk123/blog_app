@@ -12,6 +12,7 @@ import 'package:blog_app/features/auth/presentation/widgets/divider_row.dart';
 import 'package:blog_app/features/auth/presentation/widgets/emailvaliadte.dart';
 import 'package:blog_app/features/auth/presentation/widgets/primaries.dart';
 import 'package:blog_app/features/auth/presentation/widgets/secondary_button.dart';
+import 'package:blog_app/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -50,7 +51,8 @@ class _SignInScreenState extends State<SignInScreen> {
                 if (state is AuthFailure) {
                   showSnackBar(context, state.message);
                 } else if (state is AuthSuccess) {
-                  //  Navigator.pushReplacementNamed(context, routeName)
+                  Navigator.pushAndRemoveUntil(
+                      context, HomePage.route(), (route) => false);
                 }
               },
               builder: (context, state) {
